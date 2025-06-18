@@ -1,160 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>SRPS | Secure Reliable Payment Solutions</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>SRPS Membership</title>
 
-  <!-- Inter font preload -->
+  <!-- Inter font -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
   <style>
     :root{
       --navy:#0b1124;
-      --pink:#d47aff;
-      --purple:#9b5de5;
-      --orange:#ff8800;
       --yellow:#ffb133;
+      --orange:#ff8800;
     }
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    html,body{height:100%;scroll-behavior:smooth;}
-    body{
-      font-family:'Inter',sans-serif;
-      background:var(--navy);
-      color:#fff;
-      overflow-x:hidden;
-    }
+    html,body{height:100%;}
+    body{font-family:'Inter',sans-serif;background:var(--navy);color:#fff;overflow-x:hidden;}
 
     /* ---------- HERO ---------- */
-    .hero{
-      position:relative;
-      min-height:100dvh;   /* full usable viewport on mobile */
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      align-items:center;
-      text-align:center;
-      padding:2rem;
-      isolation:isolate;   /* allows stacking contexts */
-    }
+    .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:2rem;}
 
-    /* Fallback eclipse motif (shows until WebGL kicks in) */
-    .eclipseFallback{
-      position:absolute;inset:0;display:flex;justify-content:center;align-items:center;pointer-events:none;
-    }
-    .eclipseFallback::before{
-      content:"";
-      width:340px;height:340px;max-width:80vw;max-height:80vw;
-      border-radius:50%;
-      background:radial-gradient(circle at 30% 30%,var(--pink) 0%,var(--purple) 35%,var(--orange) 65%,transparent 75%);
-      filter:blur(2px);
-      animation:pulse 8s ease-in-out infinite;
-    }
-    .eclipseFallback::after{
-      content:"";position:absolute;inset:0;border-radius:50%;background:var(--navy);transform:translate(25%,25%);
-    }
-    @keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.06);}}
+    /* Static eclipse artwork (png / jpg) */
+    .logo{width:320px;max-width:80vw;object-fit:contain;margin-bottom:1.8rem;
+          filter:drop-shadow(0 0 12px var(--yellow)) drop-shadow(0 0 24px var(--orange));
+          animation:glow 6s ease-in-out infinite alternate;}
+    @keyframes glow{from{filter:drop-shadow(0 0 4px var(--yellow)) drop-shadow(0 0 10px var(--orange));}
+                    to{filter:drop-shadow(0 0 18px var(--yellow)) drop-shadow(0 0 36px var(--orange));}}
 
-    h1{
-      font-size:4rem;font-weight:800;letter-spacing:2px;z-index:1;
-      color:var(--yellow);
-      text-shadow:0 0 10px var(--yellow),0 0 24px var(--orange),0 0 40px var(--orange);
-      margin-bottom:1rem;
-    }
-    .tagline{max-width:540px;font-size:1.25rem;line-height:1.5;margin-bottom:2rem;z-index:1;}
+    h1{font-size:3.5rem;font-weight:800;letter-spacing:1.5px;color:var(--yellow);text-shadow:0 0 10px var(--yellow),0 0 22px var(--orange);margin-bottom:1rem;}
+    .tagline{max-width:540px;font-size:1.25rem;line-height:1.5;margin-bottom:2rem;}
 
-    .cta{
-      z-index:1;
-      display:inline-block;padding:.85rem 2.2rem;border-radius:9999px;font-size:1rem;font-weight:600;text-decoration:none;
-      background:var(--yellow);color:var(--navy);
-      box-shadow:0 4px 12px rgba(0,0,0,.25);
-      transition:transform .18s ease,box-shadow .18s ease;
-    }
+    .cta{display:inline-block;padding:.85rem 2.2rem;border-radius:9999px;font-size:1rem;font-weight:600;text-decoration:none;background:var(--yellow);color:var(--navy);box-shadow:0 4px 12px rgba(0,0,0,.25);transition:transform .18s ease,box-shadow .18s ease;}
     .cta:hover{transform:translateY(-4px);box-shadow:0 6px 18px rgba(0,0,0,.35);}  
 
     footer{padding:2rem;font-size:.875rem;opacity:.6;text-align:center;}
-
-    /* Responsive tweaks */
-    @media(max-width:600px){
-      h1{font-size:3rem;}
-      .tagline{font-size:1.05rem;}
-    }
-    @media(max-width:360px){
-      .eclipseFallback::before{width:260px;height:260px;}
-    }
-
-    /* Canvas sits behind everything */
-    #bg{position:absolute;inset:0;width:100%;height:100%;z-index:-1;display:block;}
+    @media(max-width:600px){h1{font-size:2.7rem;}.tagline{font-size:1.05rem;}.logo{width:260px;}}
   </style>
 </head>
 <body>
   <main class="hero">
-    <!-- three.js canvas -->
-    <canvas id="bg"></canvas>
-    <!-- CSS fallback while JS loads -->
-    <div class="eclipseFallback" aria-hidden="true"></div>
-
-    <h1>SRPS&nbsp;Membership</h1>
-    <p class="tagline">Move&nbsp;with&nbsp;meaning. Align&nbsp;with&nbsp;the&nbsp;field.</p>
+    <img class="logo" src="logo.png" alt="SRPS eclipse logo">
+    <h1>SRPS Membership</h1>
+    <p class="tagline">Move with meaning. Align with the field.</p>
     <a class="cta" href="https://buy.stripe.com/00wbJ20yY3Psd0Masc83C00" target="_blank" rel="noopener">Subscribe</a>
   </main>
 
   <footer>&copy; 2025 SRPS. All rights reserved.</footer>
-
-  <!-- three.js (deferred) -->
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r157/three.min.js"></script>
-  <script>
-    // Feature‑detect WebGL before running heavy code
-    function isWebGLAvailable(){try{const c=document.createElement('canvas');return !!(window.WebGL2RenderingContext&&c.getContext('webgl2'));}catch(e){return false;}}
-
-    window.addEventListener('load',()=>{
-      if(!isWebGLAvailable()) return; // keep CSS fallback
-      const fallback=document.querySelector('.eclipseFallback');
-      if(fallback) fallback.style.display='none';
-
-      const canvas=document.getElementById('bg');
-      const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});
-      renderer.setPixelRatio(window.devicePixelRatio);
-      renderer.setSize(innerWidth,innerHeight);
-
-      const scene=new THREE.Scene();
-      const camera=new THREE.PerspectiveCamera(60,innerWidth/innerHeight,0.1,1000);
-      camera.position.z=5;
-
-      // Sun sphere
-      const sphereGeo=new THREE.SphereGeometry(2,128,128);
-      const sunMat=new THREE.MeshBasicMaterial({color:0xffb347});
-      const sun=new THREE.Mesh(sphereGeo,sunMat);scene.add(sun);
-      // Mask sphere to create crescent
-      const maskMat=new THREE.MeshBasicMaterial({color:0x0b1124});
-      const mask=new THREE.Mesh(sphereGeo,maskMat);mask.position.x=0.8;scene.add(mask);
-
-      // Shader wisps
-      const wispGeo=new THREE.SphereGeometry(2.05,128,128);
-      const wispMat=new THREE.ShaderMaterial({
-        transparent:true,side:THREE.DoubleSide,depthWrite:false,
-        uniforms:{time:{value:0}},
-        vertexShader:`varying vec2 vUv;void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}`,
-        fragmentShader:`uniform float time;varying vec2 vUv;void main(){vec3 col1=vec3(0.83,0.35,1.);vec3 col2=vec3(1.,0.3,0.6);vec3 col3=vec3(1.,0.55,0.15);float a=sin((vUv.y+time*0.08)*6.283)*0.5+0.5;float b=sin((vUv.x-time*0.1)*6.283)*0.5+0.5;vec3 color=mix(col1,col2,a);color=mix(color,col3,b);gl_FragColor=vec4(color*0.6,0.5);}`
-      });
-      const wisp=new THREE.Mesh(wispGeo,wispMat);scene.add(wisp);
-
-      function onResize(){
-        renderer.setSize(innerWidth,innerHeight);
-        camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();
-      }
-      window.addEventListener('resize',onResize);
-
-      function animate(){
-        requestAnimationFrame(animate);
-        sun.rotation.y+=0.003;
-        wisp.rotation.y+=0.002;
-        wispMat.uniforms.time.value+=0.5;
-        renderer.render(scene,camera);
-      }
-      animate();
-    });
-  </script>
 </body>
 </html>
